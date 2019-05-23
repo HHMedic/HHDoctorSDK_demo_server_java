@@ -13,8 +13,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ServerDemoApplicationTests {
-    private Integer appId = -1;
-    private String appKey = "APPKEY", appSecret = "APPSECRET";
+    private Integer appId = 8252;
+    private String appKey = "", appSecret = "G2NjYxZfHFDY";
     private UserRequest userRequest = new UserRequest();
     private ProductRequest productRequest = new ProductRequest();
 
