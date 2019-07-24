@@ -35,7 +35,7 @@ public class ServerDemoApplicationTests {
         ServerResponse serverResponse = userRequest.registerUser(user);*/
         //为新用户添加产品套餐
         Product product = new Product();
-        product.setPhoneNum("");
+        product.setUserToken("");
         product.setPid(100);                                //产品套餐ID
         ServerResponse serverResponse = productRequest.addProduct(product);
     }
