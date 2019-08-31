@@ -14,7 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class ServerDemoApplicationTests {
     private Integer appId = 8252;
-    private String appKey = "", appSecret = "G2NjYxZfHFDY";
+    private String appKey = "", appSecret = "";
     private UserRequest userRequest = new UserRequest();
     private ProductRequest productRequest = new ProductRequest();
 
