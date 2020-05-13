@@ -140,25 +140,25 @@ public class MainContrller {
     /**
      * 添加产品套餐API
      *
-     * @param phoneNum 手机号
+     * @param userToken userToken
      * @param pid      产品套餐ID
      * @return
      * @throws Exception
      */
     @PostMapping(value = "/addProduct")
     @ResponseBody
-    public String addProductÅpi(@RequestParam(name = "phoneNum", defaultValue = "") String phoneNum,
+    public String addProductÅpi(@RequestParam(name = "userToken", defaultValue = "") String userToken,
                                 @RequestParam(name = "imei", defaultValue = "") String imei,
                                 @RequestParam(name = "pid", required = true, defaultValue = "") Integer pid) throws Exception {
         ServerResponse serverResponse;
-        if (!StringUtil.isNullOrEmpty(phoneNum)) {
-            serverResponse = productRequest.addProduct(phoneNum, pid);
+        if (!StringUtil.isNullOrEmpty(userToken)) {
+            serverResponse = productRequest.addProduct(userToken, pid);
         } else if (!StringUtil.isNullOrEmpty(imei)) {
             serverResponse = productRequest.addProductByImei("", imei, pid);
         } else {
             serverResponse = new ServerResponse();
             serverResponse.setStatus(400);
-            serverResponse.setMessage("phoneNum和imei至少应保证一个有值");
+            serverResponse.setMessage("userToken和imei至少应保证一个有值");
         }
         return JSON.toJSONString(serverResponse);
     }

@@ -24,13 +24,13 @@
         <div class="weui-cells weui-cells_form">
             <div class="weui-cell weui-cell_select weui-cell_select-before">
                 <div class="weui-cell__hd">
-                    <select id="phoneOrImei" class="weui-select" name="phoneOrImei">
-                        <option value="phoneNum">手机</option>
+                    <select id="userTokenOrImei" class="weui-select" name="userTokenOrImei">
+                        <option value="userToken">userToken</option>
                         <option value="imei">IMEI</option>
                     </select>
                 </div>
                 <div class="weui-cell__bd">
-                    <input id="phoneOrImeiValue" class="weui-input" type="text" placeholder="请输入"/>
+                    <input id="userTokenOrImeiValue" class="weui-input" type="text" placeholder="请输入"/>
                 </div>
             </div>
 
@@ -103,7 +103,7 @@
     //添加产品套餐
     function addProduct() {
         var params = new Array();
-        params.push($('#phoneOrImei').val() + '=' + $('#phoneOrImeiValue').val());
+        params.push($('#userTokenOrImei').val() + '=' + $('#userTokenOrImeiValue').val());
         params.push('pid=' + $('#pid').val());
         $.post('./addProduct', params.join('&'), function (res, succ) {
             if ('success' == succ) {
