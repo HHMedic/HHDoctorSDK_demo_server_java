@@ -23,7 +23,7 @@
 * 输入小程序APPID：wx15e414719996d59f，或在下方常用小程序中点击"在线咨询服务"，并点击确定。
 ![sample1](https://imgs.hh-medic.com/icon/wmp/git/WX20190415-112752.png?x-oss-process=image/resize,m_fixed,h_500)
 
-* 输入小程序路径（请与接口人联系获取）和备用网页(https://d.hh-medic.com/wmp_unsupport.html)。
+* 输入小程序路径（请与接口人联系获取）和备用网页：https://d.hh-medic.com/wmp_unsupport.html
 ![sample1](https://imgs.hh-medic.com/icon/wmp/git/WX20190415-112828.png?x-oss-process=image/resize,m_fixed,h_500)
 
 * 保存自定义菜单。
