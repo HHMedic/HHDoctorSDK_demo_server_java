@@ -28,7 +28,6 @@ public class MainContrller {
     private Boolean isInited = false;
     private Integer sdkProductId = -1;
     private String appSecret = "APPSECRET";
-
     private UserRequest userRequest = new UserRequest();
     private ProductRequest productRequest = new ProductRequest();
 
@@ -64,11 +63,11 @@ public class MainContrller {
     /**
      * 注册用户API
      *
-     * @param phoneNum 手机号
-     * @param name     姓名
-     * @param userId   用户ID
-     * @param sex      性别
-     * @param birthday 生日
+     * @param phoneNum  手机号
+     * @param name      姓名
+     * @param accountId 用户ID
+     * @param sex       性别
+     * @param birthday  生日
      * @return
      * @throws Exception
      */
@@ -76,7 +75,7 @@ public class MainContrller {
     @ResponseBody
     public String regUserApi(@RequestParam(name = "phoneNum", required = true, defaultValue = "") String phoneNum,
                              @RequestParam(name = "name", required = true, defaultValue = "") String name,
-                             @RequestParam(name = "userId", required = true, defaultValue = "") String userId,
+                             @RequestParam(name = "accountId", required = true, defaultValue = "") String accountId,
                              @RequestParam(name = "sex", required = true, defaultValue = "") String sex,
                              @RequestParam(name = "birthday", required = true, defaultValue = "") String birthday) throws Exception {
         DateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
@@ -85,7 +84,7 @@ public class MainContrller {
         user.setName(name);
         user.setBirthday(fmt.parse(birthday));
         user.setSex("男".equals(sex) ? User.SexEnum.男 : User.SexEnum.女);
-        user.setAccountId(userId);
+        user.setAccountId(accountId);
         ServerResponse serverResponse = userRequest.registerUser(user);
         return JSON.toJSONString(serverResponse);
     }
@@ -102,6 +101,7 @@ public class MainContrller {
                                @RequestParam(name = "photoUrl", required = true, defaultValue = "") String photoUrl,
                                @RequestParam(name = "sex", required = true, defaultValue = "") String sex,
                                @RequestParam(name = "birthday", required = true, defaultValue = "") String birthday,
+                               @RequestParam(name = "accountId", required = true, defaultValue = "") String accountId,
                                @RequestParam(name = "relation", required = true, defaultValue = "") String relation) throws Exception {
         DateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
         User user = new User();
@@ -111,6 +111,7 @@ public class MainContrller {
         user.setSex("男".equals(sex) ? User.SexEnum.男 : User.SexEnum.女);
         user.setPhotourl(photoUrl);
         user.setRelation(relation);
+        user.setAccountId(accountId);
         ServerResponse serverResponse = userRequest.addMember(user, false, "'");
         return JSON.toJSONString(serverResponse);
     }
@@ -141,7 +142,7 @@ public class MainContrller {
      * 添加产品套餐API
      *
      * @param userToken userToken
-     * @param pid      产品套餐ID
+     * @param pid       产品套餐ID
      * @return
      * @throws Exception
      */
@@ -213,8 +214,15 @@ public class MainContrller {
         if (isInited) {
             return;
         }
+        String red = "\u001B[31m", reset = "\u001B[0m";
         if (sdkProductId < 0 || "APPSECRET".equals(appSecret)) {
-            System.out.println("--------请修改sdkProductId、appSecret变量值--------");
+            System.out.println(red);
+            System.out.println("########################################################参数未初始化########################################################################");
+            System.out.println("##                                                                                                                                       ##");
+            System.out.println("##                       请修改com.hhmedic.sdk.server.demo.web.MainController中29、30行的sdkProductId、appSecret变量值                      ##");
+            System.out.println("##                                                                                                                                       ##");
+            System.out.println("###########################################################################################################################################");
+            System.out.println(reset);
             System.exit(0);
         }
         SdkProfile.initialize(sdkProductId, appSecret, SdkProfile.ProfileTypeEnum.TEST);
