@@ -13,7 +13,8 @@
 * 在浏览器中访问：http://localhost:8080/demo
 
 ## 完整对接流程
-请参考：https://github.com/HHMedic/HHDoctorSDK_demo_server_java/blob/master/HOWTODO.md
+请参考：[HOWTODO.md](HOWTODO.md)
+
 
 
 ## SDK方法列表
