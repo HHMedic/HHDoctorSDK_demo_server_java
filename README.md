@@ -1,8 +1,13 @@
 # HHDoctorSDK_demo_server_java
-视频医生服务器SDK演示Java版
+视频医生服务器SDK演示Java版2.0
+
+如您使用的是1.0版本的SDK，请切换至分支v1.x
+
+**强烈建议您将SDK升级至2.0版本**
 
 ## 说明
 如果您的后台开发语言是Java或.Net，推荐使用我们提供的SDK，实现服务器的快速接入。如果您的开发语言非Java或.Net，也可通过API接口实现服务器的对接。
+
 API文档地址：https://api.hh-medic.com/project/47/interface/api
 
 本项目使用maven管理，基于spring boot框架，用于演示视频医生服务器SDK相关功能。
