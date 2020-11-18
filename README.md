@@ -170,6 +170,7 @@ SDK中默认的client需要依赖spring-web，您需要单独添加
 
 ## 六. 其他说明
 如需数据抄送功能，可参考API：https://api.hh-medic.com/project/47/interface/api/1592
+
 SDK实现抄送数据校验功能
 ```java
 	@PostMapping(value = "/syncData")
