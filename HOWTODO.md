@@ -17,39 +17,3 @@
 
 ***
 
-## 二、SDK/API
-如果您的后台开发语言是Java或.Net，推荐使用我们提供的SDK，实现服务器的快速接入。如果您的开发语言非Java或.Net，也可通过API接口实现服务器的对接。
-#### Java版
-https://github.com/HHMedic/HHDoctorSDK_demo_server_java
-
-#### .Net版
-https://github.com/HHMedic/HHDoctorSDK_demo_server_dotnet
-
-#### API
-##### 通用规则
-https://api.hh-medic.com/project/44/interface/api/1349
-##### 注册用户
-https://api.hh-medic.com/project/47/interface/api/1712
-##### 添加套餐
-https://api.hh-medic.com/project/47/interface/api/1684
-##### 获取小程序码（小程序对接专用）
-https://api.hh-medic.com/project/47/interface/api/1696
-
-**API重要提示**
-* 如果您使用API对接服务器，访问API网站时需要登录用户名和密码，此用户名和密码由我方分配，请向您的接口人索取。
-* 请首先阅读API文档的通用规则部分，并确保已完全了解CurTime、Nonce、CheckSum相关参数的计算生成方式，其他业务API均在遵守通用规则的前提下提供服务。
-
-***
-
-## 三、APP如何调用小程序
-请参考：https://api.hh-medic.com/project/53/interface/api/1528
-
-***
-
-## 四、SDK/API开发帐号
-开发帐号包括sdkProductId和appSecret,由我方分配，在调用SDK或API时使用，请向您的接口人索取。
-
-***
-
-## 五、其他说明
-如需数据抄送功能，可参考API：https://api.hh-medic.com/project/47/interface/api/1592
