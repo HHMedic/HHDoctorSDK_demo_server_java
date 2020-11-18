@@ -154,6 +154,7 @@ public class MainContrller {
 		if(StringUtils.isNotBlank(imei)){
 			request.setImei(imei);
 		}
+//		request.setThirdOrderId(thirdOrderId);
 		// 2.client执行请求
 		AddProductByUserTokenResponse response = hhmedicFamilyClient.doAction(request);
 		// 3.返回用户套餐过期时间
