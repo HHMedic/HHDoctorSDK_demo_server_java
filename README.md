@@ -22,7 +22,6 @@
 
 API文档地址：https://api.hh-medic.com/project/47/interface/api
 
-本项目使用maven管理，基于spring boot框架，用于演示视频医生服务器SDK相关功能。
 #### Java版地址
 https://github.com/HHMedic/HHDoctorSDK_demo_server_java
 
