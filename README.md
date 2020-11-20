@@ -7,6 +7,9 @@
 
 ## 版本变更历史
 
+2.0.14
+* 增加缺省版本参数
+
 2.0.13
 * 添加套餐请求取消合作伙伴唯一ID属性必填限制
 
@@ -65,7 +68,7 @@ https://github.com/HHMedic/HHDoctorSDK_demo_server_dotnet
         <dependency>
             <groupId>com.hhmedic.sdk</groupId>
             <artifactId>server.family</artifactId>
-            <version>2.0.13</version>
+            <version>2.0.14</version>
         </dependency>
 ```
 ***说明：***
