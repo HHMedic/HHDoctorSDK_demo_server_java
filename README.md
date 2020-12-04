@@ -142,18 +142,17 @@ SDK中默认的client需要依赖spring-web，您需要单独添加
 ```java
 		// 1.创建添加用户套餐请求
 		AddProductByUserTokenRequest request = new AddProductByUserTokenRequest();
-		request.setPid(pid);
-		if(StringUtils.isNotBlank(userToken)){
-			request.setUserToken(userToken);
-		}
-		if(StringUtils.isNotBlank(imei)){
-			request.setImei(imei);
-		}
-        request.setThirdOrderId(thirdOrderId);
-		// 2.client执行请求
-		AddProductByUserTokenResponse response = hhmedicFamilyClient.doAction(request);
-		// 3.返回用户套餐过期时间
-		return response.getExpireTime();
+				request.setPid(pid);
+				if (StringUtils.isNotBlank(userToken)) {
+				request.setUserToken(userToken);
+				}
+				// 如需要添加产品套餐接口幂等，在此处需要增加这次请求的业务唯一标识。
+				// 若不指定thirdOrderId，则多次调用此接口可能会导致套餐累加
+				//request.setThirdOrderId(thirdOrderId);
+				// 2.client执行请求
+				AddProductByUserTokenResponse response = hhmedicFamilyClient.doAction(request);
+				// 3.返回用户套餐过期时间
+				return response.getExpireTime();
 ```
 
 ##### 4. 获取小程序码
