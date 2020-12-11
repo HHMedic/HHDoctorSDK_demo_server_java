@@ -7,6 +7,9 @@
 
 ## 版本变更历史
 
+2.0.15
+* 用户注册接口姓名允许为空
+
 2.0.14
 * 增加缺省版本参数
 
@@ -68,7 +71,7 @@ https://github.com/HHMedic/HHDoctorSDK_demo_server_dotnet
         <dependency>
             <groupId>com.hhmedic.sdk</groupId>
             <artifactId>server.family</artifactId>
-            <version>2.0.14</version>
+            <version>2.0.15</version>
         </dependency>
 ```
 ***说明：***
