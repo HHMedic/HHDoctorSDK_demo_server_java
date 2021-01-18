@@ -7,6 +7,10 @@
 
 ## 版本变更历史
 
+2.0.16
+* hibernate-validator依赖需单独引入
+* 增加09.设备注册接口
+
 2.0.15
 * 用户注册接口姓名允许为空
 
@@ -71,7 +75,7 @@ https://github.com/HHMedic/HHDoctorSDK_demo_server_dotnet
         <dependency>
             <groupId>com.hhmedic.sdk</groupId>
             <artifactId>server.family</artifactId>
-            <version>2.0.15</version>
+            <version>2.0.16</version>
         </dependency>
 ```
 ***说明：***
@@ -81,15 +85,15 @@ SDK中默认的client需要依赖spring-web，您需要单独添加
 | 接口名称 | SDK请求 | SDK响应 |
 | :-----| :---- | :---- |
 | 01.用户注册 | RegisterUserRequest | RegisterUserResponse |
-| 02.用户信息更新 | UpdateUserRequest | Void |
-| 03.添加套餐 | AddProductByUserTokenRequest | AddProductByUserTokenResponse |
+| 02.激活码开通套餐 | ActiveProductRequest | ActiveProductResponse |
+| 03.添加家庭成员 | AddMemberRequest | AddMemberResponse |
 | 04.获取小程序码 | GetUserWxCodeByTokenRequest | GetUserWxCodeResponse |
-| 05.添加家庭成员 | AddMemberRequest | AddMemberResponse |
+| 05.用户信息更新 | UpdateUserRequest | Void |
 | 06.查询用户套餐信息 | GetUserProductRequest | GetUserProductResponse |
 | 07.停止用户套餐服务 | DeleteProductByUserTokenRequest | DeleteProductByUserTokenResponse |
 | 08.删除用户信息 | DeleteUserRequest | Boolean |
-| 09.设备-续费套餐 | 未实现 | 未实现 |
-| 10.激活码开通套餐 | ActiveProductRequest | ActiveProductResponse |
+| 09.设备注册 | RegisterImeiRequest | RegisterImeiResponse |
+| 10.添加套餐 | AddProductByUserTokenRequest | AddProductByUserTokenResponse |
 
 ## 四. 接口列表 - 用户健康
 | 接口名称 | SDK请求 | SDK响应 |
@@ -121,7 +125,7 @@ SDK中默认的client需要依赖spring-web，您需要单独添加
 * API文档参看：https://api.hh-medic.com/project/47/interface/api/1740
 * 缺省情况下，返回码code不为200时，SDK会抛出ServiceExcepiton异常
 
-##### 1. 用户注册
+##### 01. 用户注册
 ```java
 		// 1.创建注册用户请求对象
 		RegisterUserRequest request = new RegisterUserRequest();
@@ -136,40 +140,12 @@ SDK中默认的client需要依赖spring-web，您需要单独添加
 		return response.getUserToken();
 ```
 
-##### 2. 用户信息更新
+##### 02. 激活码开通套餐
 ```java
 
 ```
 
-##### 3. 添加套餐
-```java
-		// 1.创建添加用户套餐请求
-		AddProductByUserTokenRequest request = new AddProductByUserTokenRequest();
-				request.setPid(pid);
-				if (StringUtils.isNotBlank(userToken)) {
-				request.setUserToken(userToken);
-				}
-				// 如需要添加产品套餐接口幂等，在此处需要增加这次请求的业务唯一标识。
-				// 若不指定thirdOrderId，则多次调用此接口可能会导致套餐累加
-				//request.setThirdOrderId(thirdOrderId);
-				// 2.client执行请求
-				AddProductByUserTokenResponse response = hhmedicFamilyClient.doAction(request);
-				// 3.返回用户套餐过期时间
-				return response.getExpireTime();
-```
-
-##### 4. 获取小程序码
-```java
-		// 1.创建获取小程序二维码请求
-		GetUserWxCodeByTokenRequest request = new GetUserWxCodeByTokenRequest();
-		request.setUserToken(userToken);
-		// 2.client执行请求
-		GetUserWxCodeResponse response = hhmedicFamilyClient.doAction(request);
-		// 3.返回小程序二维码
-		return response.getWxacode();
-```
-
-##### 5. 添加家庭成员
+##### 03. 添加家庭成员
 ```java
 		// 1.创建添加家庭成员请求
 		AddMemberRequest request = new AddMemberRequest();
@@ -184,6 +160,34 @@ SDK中默认的client需要依赖spring-web，您需要单独添加
 		AddMemberResponse response = hhmedicFamilyClient.doAction(request);
 		// 3.返回新注册家庭成员userToken
 		return response.getUserToken();
+```
+
+##### 04. 获取小程序码
+```java
+		// 1.创建获取小程序二维码请求
+		GetUserWxCodeByTokenRequest request = new GetUserWxCodeByTokenRequest();
+		request.setUserToken(userToken);
+		// 2.client执行请求
+		GetUserWxCodeResponse response = hhmedicFamilyClient.doAction(request);
+		// 3.返回小程序二维码
+		return response.getWxacode();
+```
+
+##### 10. 添加套餐
+```java
+		// 1.创建添加用户套餐请求
+		AddProductByUserTokenRequest request = new AddProductByUserTokenRequest();
+				request.setPid(pid);
+				if (StringUtils.isNotBlank(userToken)) {
+				request.setUserToken(userToken);
+				}
+				// 如需要添加产品套餐接口幂等，在此处需要增加这次请求的业务唯一标识。
+				// 若不指定thirdOrderId，则多次调用此接口可能会导致套餐累加
+				//request.setThirdOrderId(thirdOrderId);
+				// 2.client执行请求
+				AddProductByUserTokenResponse response = hhmedicFamilyClient.doAction(request);
+				// 3.返回用户套餐过期时间
+				return response.getExpireTime();
 ```
 
 
