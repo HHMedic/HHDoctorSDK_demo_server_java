@@ -7,6 +7,9 @@
 
 ## 版本变更历史
 
+2.0.17
+* 查询用户套餐信息接口响应内容增加专家过期时间和成员数量属性
+
 2.0.16
 * hibernate-validator依赖需单独引入
 * 增加09.设备注册接口
@@ -75,7 +78,7 @@ https://github.com/HHMedic/HHDoctorSDK_demo_server_dotnet
         <dependency>
             <groupId>com.hhmedic.sdk</groupId>
             <artifactId>server.family</artifactId>
-            <version>2.0.16</version>
+            <version>2.0.17</version>
         </dependency>
 ```
 ***说明：***
